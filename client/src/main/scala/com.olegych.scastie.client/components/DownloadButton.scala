@@ -6,7 +6,7 @@ import com.olegych.scastie.api.SnippetId
 import japgolly.scalajs.react._, vdom.all._, extra._
 
 final case class DownloadButton(snippetId: SnippetId) {
-  @inline def render: VdomElement = DownloadButton.component(this)
+  def render: VdomElement = DownloadButton.component(this)
 }
 
 object DownloadButton {

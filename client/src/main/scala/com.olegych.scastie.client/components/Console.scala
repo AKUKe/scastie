@@ -12,7 +12,7 @@ final case class Console(isOpen: Boolean,
                          consoleOutputs: Vector[ConsoleOutput],
                          close: Reusable[Callback],
                          open: Reusable[Callback]) {
-  @inline def render: VdomElement = Console.component(this)
+  def render: VdomElement = Console.component(this)
 }
 
 object Console {

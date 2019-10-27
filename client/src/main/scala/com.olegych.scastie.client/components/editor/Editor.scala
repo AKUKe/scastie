@@ -26,7 +26,7 @@ final case class Editor(visible: Boolean,
                         formatCode: Reusable[Callback],
                         codeChange: String ~=> Callback) {
 
-  @inline def render: VdomElement = Editor.component(this)
+  def render: VdomElement = Editor.component(this)
 }
 
 object Editor {

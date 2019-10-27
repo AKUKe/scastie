@@ -26,7 +26,7 @@ final case class EditorTopBar(clear: Reusable[Callback],
                               view: StateSnapshot[View],
                               isWorksheetMode: Boolean,
                               scalaTarget: ScalaTarget) {
-  @inline def render: VdomElement = EditorTopBar.component(this)
+  def render: VdomElement = EditorTopBar.component(this)
 }
 
 object EditorTopBar {

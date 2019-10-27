@@ -22,7 +22,7 @@ final case class CodeSnippets(
     deleteSnippet: SnippetId ~=> Future[Boolean]
 ) {
 
-  @inline def render: VdomElement = CodeSnippets.component(this)
+  def render: VdomElement = CodeSnippets.component(this)
 }
 
 object CodeSnippets {

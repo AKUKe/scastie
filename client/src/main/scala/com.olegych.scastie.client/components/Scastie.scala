@@ -22,7 +22,7 @@ final case class Scastie(
     private val tryLibrary: Option[(ScalaDependency, Project)]
 ) {
 
-  @inline def render = Scastie.component(serverUrl, scastieId)(this)
+  def render = Scastie.component(serverUrl, scastieId)(this)
 
   def serverUrl: Option[String] = embedded.map(_.serverUrl)
   def isEmbedded: Boolean = embedded.isDefined
@@ -280,3 +280,4 @@ object Scastie {
       .configure(Reusability.shouldComponentUpdate)
       .build
 }
+

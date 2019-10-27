@@ -10,7 +10,7 @@ final case class NewButton(isNewSnippetModalClosed: Boolean,
                            openNewSnippetModal: Reusable[Callback],
                            closeNewSnippetModal: Reusable[Callback],
                            newSnippet: Reusable[Callback]) {
-  @inline def render: VdomElement = NewButton.component(this)
+  def render: VdomElement = NewButton.component(this)
 }
 
 object NewButton {

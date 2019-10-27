@@ -7,7 +7,7 @@ import vdom.all._
 import extra._
 
 final case class ClearButton(clear: Reusable[Callback]) {
-  @inline def render: VdomElement = ClearButton.component(this)
+  def render: VdomElement = ClearButton.component(this)
 }
 
 object ClearButton {

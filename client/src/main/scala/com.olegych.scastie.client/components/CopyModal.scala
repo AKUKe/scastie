@@ -10,7 +10,7 @@ import org.scalajs.dom.html
 import org.scalajs.dom.{window, document}
 
 final case class CopyModal(title: String, subtitle: String, content: String, modalId: String, isClosed: Boolean, close: Reusable[Callback]) {
-  @inline def render: VdomElement =
+  def render: VdomElement =
     new CopyModal.ShareModalComponent().build(this)
 }
 

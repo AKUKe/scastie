@@ -7,7 +7,7 @@ import vdom.all._
 import extra._
 
 final case class HelpModal(isClosed: Boolean, close: Reusable[Callback]) {
-  @inline def render: VdomElement = HelpModal.component(this)
+  def render: VdomElement = HelpModal.component(this)
 }
 
 object HelpModal {

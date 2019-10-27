@@ -5,7 +5,7 @@ package components
 import japgolly.scalajs.react._, vdom.all._, extra._
 
 final case class WelcomeModal(isClosed: Boolean, close: Reusable[Callback]) {
-  @inline def render: VdomElement = WelcomeModal.component(this)
+  def render: VdomElement = WelcomeModal.component(this)
 }
 
 object WelcomeModal {

@@ -31,7 +31,7 @@ final case class SideBar(isDarkTheme: Boolean,
                          toggleTheme: Reusable[Callback],
                          view: StateSnapshot[View],
                          openHelpModal: Reusable[Callback]) {
-  @inline def render: VdomElement = SideBar.component(this)
+  def render: VdomElement = SideBar.component(this)
 }
 
 object SideBar {

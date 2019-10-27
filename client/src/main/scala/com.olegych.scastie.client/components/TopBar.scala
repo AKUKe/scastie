@@ -9,7 +9,7 @@ import japgolly.scalajs.react._, vdom.all._, extra._
 import org.scalajs.dom
 
 final case class TopBar(view: StateSnapshot[View], user: Option[User]) {
-  @inline def render: VdomElement = TopBar.component(this)
+  def render: VdomElement = TopBar.component(this)
 }
 
 object TopBar {

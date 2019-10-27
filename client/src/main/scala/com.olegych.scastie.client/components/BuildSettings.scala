@@ -27,7 +27,7 @@ final case class BuildSettings(
     addScalaDependency: (ScalaDependency, Project) ~=> Callback
 ) {
 
-  @inline def render: VdomElement = BuildSettings.component(this)
+  def render: VdomElement = BuildSettings.component(this)
 }
 
 object BuildSettings {
@@ -232,3 +232,8 @@ object BuildSettings {
       .configure(Reusability.shouldComponentUpdate)
       .build
 }
+
+
+
+
+

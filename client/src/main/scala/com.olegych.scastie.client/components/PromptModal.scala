@@ -12,7 +12,7 @@ final case class PromptModal(modalText: String,
                              actionLabel: String,
                              action: Reusable[Callback]) {
 
-  @inline def render: VdomElement = PromptModal.component(this)
+  def render: VdomElement = PromptModal.component(this)
 }
 
 object PromptModal {

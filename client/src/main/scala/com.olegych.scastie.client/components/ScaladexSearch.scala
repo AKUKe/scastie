@@ -21,7 +21,7 @@ final case class ScaladexSearch(
     librariesFrom: Map[ScalaDependency, Project],
     scalaTarget: ScalaTarget
 ) {
-  @inline def render: VdomElement = ScaladexSearch.component(this)
+  def render: VdomElement = ScaladexSearch.component(this)
 }
 
 object ScaladexSearch {

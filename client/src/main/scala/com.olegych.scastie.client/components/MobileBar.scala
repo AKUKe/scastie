@@ -9,7 +9,7 @@ final case class MobileBar(isRunning: Boolean,
                            run: Reusable[Callback],
                            setView: View ~=> Callback,
                            forceDesktop: Reusable[Callback]) {
-  @inline def render: VdomElement = MobileBar.component(this)
+  def render: VdomElement = MobileBar.component(this)
 }
 
 object MobileBar {

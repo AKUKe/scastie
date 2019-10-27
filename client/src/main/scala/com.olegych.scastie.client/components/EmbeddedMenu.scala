@@ -15,7 +15,7 @@ final case class EmbeddedMenu(isRunning: Boolean,
                               run: Reusable[Callback],
                               save: Reusable[CallbackTo[Option[SnippetId]]],
                               setView: View ~=> Callback) {
-  @inline def render: VdomElement = EmbeddedMenu.component(this)
+  def render: VdomElement = EmbeddedMenu.component(this)
 }
 
 object EmbeddedMenu {

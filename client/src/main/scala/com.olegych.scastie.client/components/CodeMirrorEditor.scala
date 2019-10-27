@@ -16,7 +16,7 @@ final case class CodeMirrorEditor(
     theme: String,
     readOnly: Boolean
 ) {
-  @inline def render: VdomElement = CodeMirrorEditor.component(this)
+  def render: VdomElement = CodeMirrorEditor.component(this)
 }
 
 object CodeMirrorEditor {

@@ -9,7 +9,7 @@ final case class ViewToggleButton(currentView: StateSnapshot[View],
                                   buttonTitle: String,
                                   faIcon: String,
                                   onClick: Reusable[Callback]) {
-  @inline def render: VdomElement = ViewToggleButton.component(this)
+  def render: VdomElement = ViewToggleButton.component(this)
 }
 
 object ViewToggleButton {

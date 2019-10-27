@@ -7,7 +7,7 @@ import vdom.all._
 import extra._
 
 final case class RunButton(isRunning: Boolean, isStatusOk: Boolean, save: Reusable[Callback], setView: View ~=> Callback) {
-  @inline def render: VdomElement = RunButton.component(this)
+  def render: VdomElement = RunButton.component(this)
 }
 
 object RunButton {

@@ -135,19 +135,14 @@ object SbtShared {
   }
 
   /* api is for the communication between sbt <=> server <=> frontend */
-  lazy val apiProject: ProjectMatrix = ProjectMatrix(id = "api", base = file("api"))
+  lazy val apiProject = Project(id = "api", base = file("api"))
     .settings(apiSettings)
-    .jvmPlatform(ScalaVersions.cross)
-    .jsPlatform(List(ScalaVersions.js), baseJsSettings)
-    .enablePlugins(BuildInfoPlugin)
-
-  lazy val sbtApiProject: Project = Project(id = "api-sbt", base = file("api-sbt"))
-    .settings(sourceDirectory := baseDirectory.value / ".." / ".." / "api" / "src")
-    .settings(apiSettings)
-    .enablePlugins(BuildInfoPlugin)
+    .settings(baseJsSettings)
+    .enablePlugins(org.scalajs.sbtplugin.ScalaJSPlugin, BuildInfoPlugin)
 
   private def apiSettings = {
     baseSettings ++ List(
+      scalaVersion := "2.12.10",
       name := "api",
       libraryDependencies += {
         scalaVersion.value match {
@@ -174,20 +169,6 @@ object SbtShared {
       ),
       buildInfoPackage := "com.olegych.scastie.buildinfo",
     )
-  }
-
-  /* runtime* pretty print values and type */
-  lazy val runtimeScalaProject = {
-    import sbtprojectmatrix.ProjectMatrixPlugin.autoImport._
-    ProjectMatrix(id = runtimeProjectName, base = file(runtimeProjectName))
-      .settings(
-        baseSettings,
-        version := versionRuntime,
-        name := runtimeProjectName,
-      )
-      .jvmPlatform(ScalaVersions.cross)
-      .jsPlatform(List(ScalaVersions.js), baseJsSettings)
-      .dependsOn(apiProject)
   }
 
 }

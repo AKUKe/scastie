@@ -7,7 +7,7 @@ import japgolly.scalajs.react._, vdom.all._, extra._
 
 final case class MainPanel(state: ScastieState, backend: ScastieBackend, props: Scastie) {
 
-  @inline def render: VdomElement = MainPanel.component(this)
+  def render: VdomElement = MainPanel.component(this)
 }
 
 object MainPanel {
@@ -198,3 +198,8 @@ object MainPanel {
       .configure(Reusability.shouldComponentUpdate)
       .build
 }
+
+
+
+
+

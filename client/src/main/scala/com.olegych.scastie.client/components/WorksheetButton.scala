@@ -10,7 +10,7 @@ final case class WorksheetButton(
     toggleWorksheetMode: Reusable[Callback],
     view: View
 ) {
-  @inline def render: VdomElement = WorksheetButton.component(this)
+  def render: VdomElement = WorksheetButton.component(this)
 }
 
 object WorksheetButton {

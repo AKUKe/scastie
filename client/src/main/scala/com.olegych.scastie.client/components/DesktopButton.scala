@@ -5,7 +5,7 @@ package components
 import japgolly.scalajs.react._, vdom.all._, extra._
 
 final case class DesktopButton(forceDesktop: Reusable[Callback]) {
-  @inline def render: VdomElement = DesktopButton.component(this)
+  def render: VdomElement = DesktopButton.component(this)
 }
 
 object DesktopButton {
