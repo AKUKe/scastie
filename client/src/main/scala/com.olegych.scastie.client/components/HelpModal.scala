@@ -1,10 +1,8 @@
 package com.olegych.scastie.client.components
 
-import com.olegych.scastie.buildinfo.BuildInfo.{gitHash, version}
 import com.olegych.scastie.client.components.editor.EditorOptions
 import japgolly.scalajs.react._
 import vdom.all._
-import extra._
 
 final case class HelpModal(isClosed: Boolean, close: Reusable[Callback]) {
   def render: VdomElement = HelpModal.component(this)
@@ -12,7 +10,7 @@ final case class HelpModal(isClosed: Boolean, close: Reusable[Callback]) {
 
 object HelpModal {
   implicit val reusability: Reusability[HelpModal] =
-    Reusability.caseClass[HelpModal]
+    Reusability.derive[HelpModal]
 
   private def render(props: HelpModal): VdomElement = {
     def generateATag(url: String, text: String) =
@@ -104,10 +102,6 @@ object HelpModal {
           scastieGithub,
           br,
           " License: Apache 2",
-          br,
-          s"Version: $version",
-          br,
-          s"Git: $gitHash"
         ),
         p(
           cls := "normal",

@@ -21,7 +21,7 @@ object SbtShared {
     val latest211 = "2.11.12"
     val latest212 = "2.12.10"
     val latest213 = "2.13.1"
-    val latestDotty = "0.19.0-RC1"
+    val latestDotty = "0.21.0-RC1"
     val js = latest212
     val sbt = latest212
     val jvm = latest212
@@ -30,7 +30,7 @@ object SbtShared {
 
   val latestScalaJs = "0.6.29"
 
-  val sbtVersion = "1.3.3"
+  val sbtVersion = "1.3.7"
   val distSbtVersion = sbtVersion
 
   val runtimeProjectName = "runtime-scala"
@@ -148,13 +148,14 @@ object SbtShared {
         scalaVersion.value match {
           case v if v.startsWith("2.10") =>
             "com.typesafe.play" %%% "play-json" % "2.6.9"
-          case _ =>
+          case v if v.startsWith("2.11") =>
             "com.typesafe.play" %%% "play-json" % "2.7.4"
+          case _ =>
+            "com.typesafe.play" %%% "play-json" % "2.8.1"
         }
       },
       buildInfoKeys := Seq[BuildInfoKey](
         organization,
-        version,
         "runtimeProjectName" -> runtimeProjectName,
         "versionRuntime" -> versionRuntime,
         "latest210" -> ScalaVersions.latest210,
@@ -165,7 +166,6 @@ object SbtShared {
         "jsScalaVersion" -> ScalaVersions.js,
         "defaultScalaJsVersion" -> latestScalaJs,
         "sbtVersion" -> readSbtVersion((baseDirectory in ThisBuild).value.toPath),
-        BuildInfoKey.action("gitHash") { gitHashNow }
       ),
       buildInfoPackage := "com.olegych.scastie.buildinfo",
     )
