@@ -28,7 +28,7 @@ object SbtShared {
     val cross = List(latest210, latest211, latest212, latest213, js, sbt, jvm).distinct
   }
 
-  val latestScalaJs = "0.6.29"
+  val latestScalaJs = "0.6.31"
 
   val sbtVersion = "1.3.7"
   val distSbtVersion = sbtVersion
@@ -106,7 +106,7 @@ object SbtShared {
   val baseJsSettings = Seq(
     scalacOptions += "-P:scalajs:sjsDefinedByDefault",
     test := {},
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.7",
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.8",
   )
 
   private def readSbtVersion(base: Path): String = {
@@ -142,7 +142,7 @@ object SbtShared {
 
   private def apiSettings = {
     baseSettings ++ List(
-      scalaVersion := "2.12.10",
+      scalaVersion := "2.13.1",
       name := "api",
       libraryDependencies += {
         scalaVersion.value match {

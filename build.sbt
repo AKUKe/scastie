@@ -17,7 +17,7 @@ lazy val client = project
   .settings(baseJsSettings)
   .settings(
     version in webpack := "3.5.5",
-    scalaVersion := "2.12.10",
+    scalaVersion := "2.13.1",
     version in startWebpackDevServer := "2.7.1",
     webpackConfigFile in fastOptJS := webpackDevConf.value,
     webpackConfigFile in fullOptJS := webpackProdConf.value,
@@ -52,8 +52,7 @@ lazy val client = project
       "webpack-merge" -> "4.1.0"
     ),
     libraryDependencies ++= Seq(
-      "com.github.japgolly.scalajs-react" %%% "extra" % "1.4.2",
-      "org.querki" %%% "querki-jsext" % "0.8"
+      "com.github.japgolly.scalajs-react" %%% "extra" % "1.5.0",
     )
   )
   .enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
